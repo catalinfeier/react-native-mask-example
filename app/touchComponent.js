@@ -1,16 +1,6 @@
-/**
- * Created by catalinfeier on 01/07/2017.
- */
-
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
   Image,
-  Button,
-  TouchableHighlight,
   TouchableWithoutFeedback,
   findNodeHandle,
   UIManager
@@ -23,19 +13,25 @@ export default class TouchComponent extends Component {
   }
 
   componentDidMount() {
-    console.log("componentMounted",this.props.id);
+    console.log("TouchComponentDidMount",this.props.id);
   }
 
-  onLongPress(e){
-    if(!this.props.active){
-      UIManager.measure(findNodeHandle(this), (x,y, width, height) => {
-        console.log('ggg',x,y, width, height);
-        this.props.onLongPress({
-          x: x,
-          y: y,
-          id: this.props.id,
-        })
-      });
+  componentWillUnmount() {
+    console.log("TouchComponentWillUnmount", this.props.id);
+  }
+
+  onLongPress(e) {
+    if (!this.props.active) {
+      UIManager.measure(
+        findNodeHandle(this),
+        (x, y, width, height) => {
+          this.props.onLongPress({
+            x: x,
+            y: y,
+            id: this.props.id,
+          })
+        }
+      );
     }
   }
 
