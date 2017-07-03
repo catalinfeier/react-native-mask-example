@@ -29,7 +29,7 @@ export default class TouchComponent extends Component {
             x: x,
             y: y,
             id: this.props.id,
-          })
+          });
         }
       );
     }

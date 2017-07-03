@@ -3,18 +3,12 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View,
-  Image,
-  Button,
   TouchableWithoutFeedback,
 } from 'react-native';
 import TouchComponent from './touchComponent';
 
 export default class Mask extends Component {
-  test(){
-    console.log('kkk')
-  }
 
   render() {
     return (
