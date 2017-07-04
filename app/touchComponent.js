@@ -12,14 +12,6 @@ export default class TouchComponent extends Component {
     this.onLongPress = this.onLongPress.bind(this);
   }
 
-  componentDidMount() {
-    console.log("TouchComponentDidMount",this.props.id);
-  }
-
-  componentWillUnmount() {
-    console.log("TouchComponentWillUnmount", this.props.id);
-  }
-
   onLongPress(e) {
     if (!this.props.active) {
       UIManager.measure(

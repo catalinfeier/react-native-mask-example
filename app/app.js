@@ -33,7 +33,8 @@ export default class App extends Component {
   showMask(params){
     this.setState({
       maskVisible: true,
-      maskParams: params
+      maskParams: params,
+
     })
   }
 
@@ -47,7 +48,11 @@ export default class App extends Component {
         <TouchComponent onLongPress={this.showMask} id="4"/>
         {
           this.state.maskVisible
-            ? <Mask onClose={this.hideMask} {...this.state.maskParams}/>
+            ? (
+              <Mask onClose={this.hideMask} background={{backgroundColor:'rgba(250,0,0,0.4)'}} {...this.state.maskParams}>
+                <TouchComponent active={false} />
+              </Mask>
+            )
             : null
         }
       </View>
@@ -63,6 +68,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
     flexDirection: 'row',
   },
+  maskBackground: {
+    backgroundColor: 'rgba(250,0,0,0.4)'
+  }
 });
 
 

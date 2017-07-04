@@ -1,23 +1,22 @@
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   View,
   TouchableWithoutFeedback,
 } from 'react-native';
-import TouchComponent from './touchComponent';
 
 export default class Mask extends Component {
 
   render() {
+    const background = StyleSheet.flatten( [styles.container, this.props.background]);
     return (
       <View style={styles.container} >
         <TouchableWithoutFeedback  onPress={this.props.onClose}>
-          <View style={styles.background}/>
+          <View style={background}/>
         </TouchableWithoutFeedback>
         <View style={{position: 'absolute', top: this.props.y, left: this.props.x}}>
-          <TouchComponent active={true} id={this.props.id}/>
+          {this.props.children}
         </View>
       </View>
     );
@@ -32,13 +31,5 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  background: {
-    backgroundColor: 'rgba(0, 0, 152, 0.4)',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-  }
 });
 
